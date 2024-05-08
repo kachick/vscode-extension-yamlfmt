@@ -18,20 +18,22 @@ const backupConfigPath = `${projectConfigPath}.bak`;
 async function main() {
   fs.renameSync(projectConfigPath, backupConfigPath);
 
+  let exitCode = 1;
+
   try {
     // Download VS Code, unzip it and run the integration test
-    await runTests({
+    exitCode = await runTests({
       extensionDevelopmentPath,
       extensionTestsPath,
       launchArgs: ["--user-data-dir", path.join(os.tmpdir(), "yamlfmt-test")],
     });
-
   } catch (err) {
     console.error("Failed to run tests", err);
-    throw new Error(`Failed to run tests: ${err}`);
-  } finally {
-    fs.renameSync(backupConfigPath, projectConfigPath);
   }
+
+  fs.renameSync(backupConfigPath, projectConfigPath);
+
+  process.exit(exitCode);
 }
 
 main();
