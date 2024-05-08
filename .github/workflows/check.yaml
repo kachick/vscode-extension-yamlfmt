@@ -39,20 +39,32 @@ jobs:
       run: npm install
 
     - name: Run dummy tests
-      run: xvfb-run -a npm test
+      run: |
+        ls -alh
+        git ls-files
+        xvfb-run -a npm test
       if: runner.os == 'Linux'
       continue-on-error: true
 
     - name: Run tests
-      run: xvfb-run -a npm test
+      run: |
+        ls -alh
+        git ls-files
+        xvfb-run -a npm test
       if: runner.os == 'Linux'
 
     - name: Run dummy tests
-      run: npm test
+      run: |
+        ls -alh
+        git ls-files
+        npm test
       if: runner.os != 'Linux'
       continue-on-error: true
 
     - name: Run tests
-      run: npm test
+      run: |
+        ls -alh
+        git ls-files
+        npm test
       if: runner.os != 'Linux'
 
