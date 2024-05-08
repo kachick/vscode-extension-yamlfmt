@@ -55,7 +55,7 @@ jobs:
 
     - name: Run dummy tests
       run: |
-        ls -alh
+        ls
         git ls-files
         npm test
       if: runner.os != 'Linux'
@@ -63,7 +63,7 @@ jobs:
 
     - name: Run tests
       run: |
-        ls -alh
+        ls
         git ls-files
         npm test
       if: runner.os != 'Linux'
