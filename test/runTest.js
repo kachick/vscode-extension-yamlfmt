@@ -28,7 +28,7 @@ async function main() {
 
   } catch (err) {
     console.error("Failed to run tests", err);
-    process.exit(1);
+    throw new Error(`Failed to run tests: ${err}`);
   } finally {
     fs.renameSync(backupConfigPath, projectConfigPath);
   }
