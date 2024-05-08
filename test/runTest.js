@@ -4,8 +4,8 @@ const fs = require("fs");
 
 const { runTests } = require("@vscode/test-electron");
 
-const projectConfigPath = ".yamlfmt";
-const backupConfigPath = `${projectConfigPath}.bak`;
+const projectConfigPath = "./.yamlfmt";
+const backupConfigPath = `./${projectConfigPath}.bak`;
 
 async function main() {
   fs.renameSync(projectConfigPath, backupConfigPath);
