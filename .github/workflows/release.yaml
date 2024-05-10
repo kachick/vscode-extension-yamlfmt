@@ -26,13 +26,13 @@ jobs:
       run: npm ci --ignore-scripts
 
     - name: Make sure to be possible to create package
-      run: npx vsce package --out 'yamlfmt-${{ github.sha }}.vsix'
+      run: npx vsce package --out 'yamlfmt.vsix'
 
     - name: Upload package
       uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
       with:
-        name: yamlfmt-${{ github.sha }}.vsix.zip
-        path: yamlfmt-${{ github.sha }}.vsix
+        name: yamlfmt-${{ github.sha }}.vsix
+        path: yamlfmt.vsix
 
     - name: Wait other jobs
       if: startsWith(github.ref, 'refs/tags/') && github.event_name != 'pull_request'
