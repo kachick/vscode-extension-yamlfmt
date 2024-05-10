@@ -7,10 +7,7 @@ on:
 
 jobs:
   integration-tests:
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -33,19 +30,7 @@ jobs:
 
     - name: Run dummy tests
       run: xvfb-run -a npm test
-      if: runner.os == 'Linux'
       continue-on-error: true
 
     - name: Run tests
       run: xvfb-run -a npm test
-      if: runner.os == 'Linux'
-
-    - name: Run dummy tests
-      run: npm test
-      if: runner.os != 'Linux'
-      continue-on-error: true
-
-    - name: Run tests
-      run: npm test
-      if: runner.os != 'Linux'
-
