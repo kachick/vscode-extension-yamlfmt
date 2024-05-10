@@ -2,19 +2,19 @@
   "name": "yamlfmt",
   "displayName": "yamlfmt",
   "description": "Format yaml files with https://github.com/google/yamlfmt",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "author": {
-    "name": "Nico Braun",
-    "email": "rainbowstack@gmail.com",
-    "url": "https://bluebrown.github.io"
+    "name": "Kenici Kamiya",
+    "email": "kachick1@gmail.com",
+    "url": "https://github.com/kachick"
   },
   "repository": {
-    "url": "https://github.com/bluebrown/vscode-extension-yamlfmt"
+    "url": "https://github.com/kachick/vscode-extension-yamlfmt"
   },
   "engines": {
-    "vscode": "^1.80.0"
+    "vscode": "^1.89.0"
   },
-  "publisher": "bluebrown",
+  "publisher": "kachick",
   "pricing": "Free",
   "categories": [
     "Formatters"
@@ -45,15 +45,11 @@
   },
   "scripts": {
     "lint": "dprint check && deno lint",
-    "test": "node ./test/runTest.js",
-    "package": "node_modules/.bin/vsce package",
-    "publish": "node_modules/.bin/vsce publish",
-    "convco": "docker run -u \"$(id -u):$(id -g)\"  -v \"$PWD:/tmp\" --workdir /tmp --rm convco/convco",
-    "release": "bash ./hack/release.sh"
+    "test": "node ./test/runTest.js"
   },
   "devDependencies": {
     "@vscode/test-electron": "^2.3.9",
-    "@vscode/vsce": "^2.19.0",
+    "@vscode/vsce": "^2.26.1",
     "mocha": "^10.2.0"
   }
 }
