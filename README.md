@@ -8,7 +8,25 @@ What are the differences in the features.
 
 ## Usage
 
-**Note** The binary must exist in the system path.
+The binary must exist in the system path.
+
+```bash
+code --install-extension kachick.vscode-yamlfmt
+```
+
+Add these config in your settings.json
+
+```json
+{
+  "editor.formatOnSave": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "kachick.vscode-yamlfmt"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "kachick.vscode-yamlfmt"
+  }
+}
+```
 
 ### Configuration
 
