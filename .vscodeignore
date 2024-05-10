@@ -7,8 +7,9 @@ test/**
 .yamlfmt
 .yarnrc
 CONTRIBUTING.md
-**/jsconfig.json
+**/tsconfig.json
 **/*.map
 dprint.json
 deno.jsonc
 **/*.sh
+**.ts
