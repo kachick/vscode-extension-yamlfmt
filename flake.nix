@@ -33,7 +33,7 @@
               edge-pkgs.nixfmt-rfc-style
 
               edge-pkgs.nodejs_20
-              edge-pkgs.yamlfmt
+              yamlfmt # 0.12.0 have curucial bug https://github.com/NixOS/nixpkgs/pull/309773
               edge-pkgs.deno
               edge-pkgs.dprint
               edge-pkgs.typos
