@@ -1,18 +1,18 @@
-const { spawnSync } = require("node:child_process");
-const { dirname } = require("node:path");
-const vscode = require("vscode");
+import { spawnSync } from "node:child_process";
+import { dirname } from "node:path";
+import * as vscode from "vscode";
 
 const yamlformattedLanguages = [
   "yaml",
   "github-actions-workflow", // Provided in https://github.com/github/vscode-github-actions
 ];
 const provider = {
-  provideDocumentFormattingEdits(document) {
+  provideDocumentFormattingEdits(document: vscode.TextDocument) {
     const workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
     const config = vscode.workspace.getConfiguration("", document.uri);
 
-    const args = config.get("yamlfmt.args", []).filter(arg => arg !== "-in");
-    args.push("-in");
+    const baseArgs = config.get("yamlfmt.args", []).filter(arg => arg !== "-in");
+    const args = [...baseArgs, "-in"];
 
     const result = spawnSync("yamlfmt", args, {
       cwd: workspaceFolder ? workspaceFolder.uri.fsPath : dirname(document.uri.fsPath),
