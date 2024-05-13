@@ -1,7 +1,11 @@
 const path = require("path");
 const os = require("os");
+const fs = require("fs");
 
 const { runTests } = require("@vscode/test-electron");
+
+// TODO: This didn't work now, because first execution of tests will fail
+const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "vscode-yamlfmt-test-"));
 
 async function main() {
   try {
@@ -17,7 +21,7 @@ async function main() {
     await runTests({
       extensionDevelopmentPath,
       extensionTestsPath,
-      launchArgs: ["--user-data-dir", path.join(os.tmpdir(), "yamlfmt-test")],
+      launchArgs: ["--user-data-dir", tmpDir],
     });
   } catch (err) {
     console.error("Failed to run tests", err);
