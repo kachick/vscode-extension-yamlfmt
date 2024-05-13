@@ -1,11 +1,5 @@
 # VS Code Extension - yamlfmt
 
-This repository is now forked for my use, the upstream is [bluebrown/vscode-extension-yamlfmt](https://github.com/bluebrown/vscode-extension-yamlfmt)
-
-What are the differences in the features.
-
-- Run formatter for GitHub action workflows
-
 ## Usage
 
 The binary must exist in the system path.
@@ -45,3 +39,7 @@ You can pass extra flags from the `settings.json`:
 ```
 
 **Note** The flag `-in` is always appended to the args, since the current document is passed via stdin to yamlfmt.
+
+## Thanks
+
+This repository is now forked for my use, the original is [bluebrown/vscode-extension-yamlfmt](https://github.com/bluebrown/vscode-extension-yamlfmt)
