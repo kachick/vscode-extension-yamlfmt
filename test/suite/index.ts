@@ -1,7 +1,7 @@
-const Mocha = require("mocha");
-const path = require("node:path");
+import Mocha from "mocha";
+import path from "node:path";
 
-function run() {
+export function run() {
   // Create the mocha test
   const mocha = new Mocha({
     ui: "tdd",
@@ -11,7 +11,7 @@ function run() {
 
   const testsRoot = path.resolve(__dirname, "..");
 
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     // add the test in this particular order.
     // this is so that first the workspace is opened,
     // and then the files without causing extra window reloads
@@ -32,7 +32,3 @@ function run() {
     }
   });
 }
-
-module.exports = {
-  run,
-};

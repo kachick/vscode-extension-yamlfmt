@@ -1,8 +1,9 @@
-const fs = require("node:fs");
-const path = require("node:path");
-const vscode = require("vscode");
-const { before } = require("mocha");
-const { sleep, caseDirTest } = require("./lib");
+import { before } from "mocha";
+import { assert } from "node:console";
+import fs from "node:fs";
+import path from "node:path";
+import vscode from "vscode";
+import { assertIsDefined, caseDirTest, sleep } from "./lib.js";
 
 suite("workspace", () => {
   const casesDir = path.join(__dirname, "testdata", "workspace");
@@ -20,6 +21,7 @@ suite("workspace", () => {
   for (const tc of testCases) {
     test(tc, async () => {
       const wsf = vscode.workspace.getWorkspaceFolder(vscode.Uri.file(path.join(casesDir, tc)));
+      assertIsDefined(wsf);
       await caseDirTest(wsf.uri.fsPath);
     });
   }
