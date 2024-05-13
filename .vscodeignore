@@ -13,3 +13,4 @@ dprint.json
 deno.jsonc
 **/*.sh
 **.ts
+*.bak

@@ -6,9 +6,9 @@ on:
     #   - 'dist/**'
     #   - 'pnpm-lock.yaml'
   pull_request:
-    # paths-ignore:
-    #   - 'dist/**'
-    #   - 'pnpm-lock.yaml'
+  # paths-ignore:
+  #   - 'dist/**'
+  #   - 'pnpm-lock.yaml'
 jobs:
   deno_lint:
     timeout-minutes: 15
