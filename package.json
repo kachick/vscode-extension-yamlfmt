@@ -2,7 +2,7 @@
   "name": "vscode-yamlfmt",
   "displayName": "yamlfmt - A YAML formatter",
   "description": "Format yaml files with https://github.com/google/yamlfmt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Kenici Kamiya",
     "email": "kachick1@gmail.com",
