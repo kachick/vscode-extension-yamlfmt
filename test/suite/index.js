@@ -11,7 +11,7 @@ function run() {
 
   const testsRoot = path.resolve(__dirname, "..");
 
-  return new Promise((resolve, reject) => {
+  return /** @type {Promise<void>} */ (new Promise((resolve, reject) => {
     // add the test in this particular order.
     // this is so that first the workspace is opened,
     // and then the files without causing extra window reloads
@@ -30,7 +30,7 @@ function run() {
     } catch (err) {
       reject(err);
     }
-  });
+  }));
 }
 
 module.exports = {

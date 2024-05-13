@@ -19,7 +19,7 @@ const sleep = util.promisify(setTimeout);
  * @param {string} dirPath absolute path to test case directory
  */
 async function caseDirTest(dirPath) {
-  process.env.XDG_CONFIG_HOME = path.join(dirPath, "xdg-config-home");
+  process.env["XDG_CONFIG_HOME"] = path.join(dirPath, "xdg-config-home");
 
   const give = (await vscode.workspace.openTextDocument(vscode.Uri.file(path.join(dirPath, "input.yaml")))).getText();
   const want = (await vscode.workspace.openTextDocument(vscode.Uri.file(path.join(dirPath, "result.yaml")))).getText();
