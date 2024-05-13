@@ -45,6 +45,9 @@
   },
   "scripts": {
     "lint": "dprint check && deno lint",
+    "prepackage": "tsc",
+    "package": "vsce package --out 'yamlfmt.vsix'",
+    "pretest": "tsc",
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
