@@ -12,11 +12,6 @@ can be done by following [these instructions](https://learn.microsoft.com/en-us/
 
 ## Releases
 
-in order to create a release, you need to export two environment variables
-first:
-
-- `VSCE_PAT` -- Azure Devops PAT. [See the Docs](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#get-a-personal-access-token)
-- `GITHUB_TOKEN` -- Github token with read/write permissions on content
-
-Once the environ variables are set, you can run `npm run release`, to create a
-new github release and publish the extension to azure marketplace.
+1. Bump version in package.json
+2. Push tag as `v0.4.2`, now not sync with the package.json
+3. Wait for complete the GitHub Actions
