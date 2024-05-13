@@ -1,7 +1,11 @@
-const path = require("path");
-const os = require("os");
+import os from "os";
+import path from "path";
 
-const { runTests } = require("@vscode/test-electron");
+import { runTests } from "@vscode/test-electron";
+
+import { fileURLToPath } from "node:url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function main() {
   try {
@@ -11,7 +15,7 @@ async function main() {
 
     // The path to the extension test script
     // Passed to --extensionTestsPath
-    const extensionTestsPath = path.resolve(__dirname, "./suite/index");
+    const extensionTestsPath = path.resolve(__dirname, "./suite/index.ts");
 
     // Download VS Code, unzip it and run the integration test
     await runTests({

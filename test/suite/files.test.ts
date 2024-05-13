@@ -1,8 +1,8 @@
-const fs = require("node:fs");
-const path = require("node:path");
-const { caseDirTest } = require("./lib");
-const { platform } = require("node:os");
-const { window } = require("vscode");
+import fs from "node:fs";
+import { platform } from "node:os";
+import path from "node:path";
+import { window } from "vscode";
+import { caseDirTest } from "./lib.js";
 
 suite("files", () => {
   const casesDir = path.join(__dirname, "testdata", "files");

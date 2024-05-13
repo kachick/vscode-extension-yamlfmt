@@ -1,9 +1,16 @@
-const path = require("node:path");
-const vscode = require("vscode");
-const assert = require("assert");
-const util = require("node:util");
+import assert from "assert";
+import path from "node:path";
+import util from "node:util";
+import vscode from "vscode";
 
-const sleep = util.promisify(setTimeout);
+// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions
+export function assertIsDefined<T>(val: T): asserts val is NonNullable<T> {
+  if (val === undefined || val === null) {
+    throw new Error(`Expected 'val' to be defined, but received ${val}`);
+  }
+}
+
+export const sleep = util.promisify(setTimeout);
 
 /**
  * Run tests against a case dir. The dir should contain at least 2 files:
@@ -18,8 +25,8 @@ const sleep = util.promisify(setTimeout);
  * This allows placing a global config file there for yamlfmt to read
  * @param {string} dirPath absolute path to test case directory
  */
-async function caseDirTest(dirPath) {
-  process.env.XDG_CONFIG_HOME = path.join(dirPath, "xdg-config-home");
+export async function caseDirTest(dirPath: string) {
+  process.env["XDG_CONFIG_HOME"] = path.join(dirPath, "xdg-config-home");
 
   const give = (await vscode.workspace.openTextDocument(vscode.Uri.file(path.join(dirPath, "input.yaml")))).getText();
   const want = (await vscode.workspace.openTextDocument(vscode.Uri.file(path.join(dirPath, "result.yaml")))).getText();
@@ -44,8 +51,3 @@ async function caseDirTest(dirPath) {
   // check if give == wants
   assert.deepEqual(doc.getText(), want);
 }
-
-module.exports = {
-  sleep,
-  caseDirTest,
-};

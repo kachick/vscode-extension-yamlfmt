@@ -27,6 +27,7 @@
     "onLanguage:github-actions-workflow"
   ],
   "main": "./out/extension.js",
+  "type": "module",
   "contributes": {
     "configuration": {
       "title": "yamlfmt",
@@ -45,7 +46,7 @@
   },
   "scripts": {
     "lint": "dprint check && deno lint",
-    "test": "node ./test/runTest.js"
+    "test": "node --import tsx --test ./test/runTest.ts"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
