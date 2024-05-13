@@ -10,6 +10,19 @@ on:
   #   - 'dist/**'
   #   - 'pnpm-lock.yaml'
 jobs:
+  yamlfmt:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.18'
+      - name: Install yamlfmt
+        run: go install github.com/google/yamlfmt/cmd/yamlfmt@v0.12.1
+      - run: yamlfmt -lint .
+
   deno_lint:
     timeout-minutes: 15
     runs-on: ubuntu-latest
