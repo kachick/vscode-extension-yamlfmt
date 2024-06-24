@@ -60,6 +60,6 @@
     "@vscode/vsce": "^2.27.0",
     "mocha": "^10.2.0",
     "tsx": "^4.15.6",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   }
 }
