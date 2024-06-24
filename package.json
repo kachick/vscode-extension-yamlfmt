@@ -51,14 +51,14 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.6",
+    "@types/mocha": "^10.0.7",
     "@tsconfig/node20": "^20.1.4",
     "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^20.14.2",
     "@types/vscode": "^1.90.0",
     "@vscode/test-electron": "^2.4.0",
     "@vscode/vsce": "^2.27.0",
-    "mocha": "^10.2.0",
+    "mocha": "^10.5.0",
     "tsx": "^4.15.6",
     "typescript": "^5.4.5"
   }
