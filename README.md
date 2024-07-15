@@ -1,5 +1,7 @@
 # VS Code Extension - yamlfmt
 
+- This repository is archived.
+
 ## Usage
 
 The binary must exist in the system path.
