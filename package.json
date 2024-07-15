@@ -12,7 +12,7 @@
     "url": "https://github.com/kachick/vscode-extension-yamlfmt"
   },
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.91.0"
   },
   "publisher": "kachick",
   "pricing": "Free",
